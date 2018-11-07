@@ -32,8 +32,7 @@ def arr_mult(a, b):
 def frac(a):
 	res = []
 	for i in a:
-		res.append(Fraction.from_float(float('{:.10f}'.format(i))).limit_denominator())
-		# res.append(Fraction(str(i)))
+		res.append(Fraction(*i.as_integer_ratio()).limit_denominator())
 	return res
 
 
@@ -60,8 +59,6 @@ def nash_equilibrium(a):
 		bw.append(1)
 	aw = a
 
-	# z_res = scipy.optimize.linprog(cz, az, bz)
-	# w_res = scipy.optimize.linprog(cw, aw, bw)
 	z_res = linprog(cz, az, bz)
 	w_res = linprog(cw, aw, bw)
 
@@ -87,8 +84,6 @@ def nash_equilibrium(a):
 	v_res = Fraction.from_float(float('{:.10f}'.format(v))).limit_denominator()
 
 	return [v_res, p_res, q_res]
-
-	# scipy.optimize.linprog(вектор, м-ца неравенств<=)
 
 
 
