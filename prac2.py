@@ -81,7 +81,7 @@ def nash_equilibrium(a):
 
 	p_res = frac(p)
 	q_res = frac(q)
-	v_res = Fraction.from_float(float('{:.10f}'.format(v))).limit_denominator()
+	v_res = Fraction(*i.as_integer_ratio()).limit_denominator()
 
 	return [v_res, p_res, q_res]
 
